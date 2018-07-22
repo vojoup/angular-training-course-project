@@ -14,11 +14,27 @@ export class RecipeService {
   constructor(private slService: ShoppingListService) {
   }
 
-  getRecipes() {
+  /**
+   * Get all recipes
+   *
+   * @return all available recipes
+   * */
+  getRecipes(): Recipe[] {
     return this.recipes.slice();
+  }
+
+  /**
+   * Get a single recipe by ID
+   *
+   * @param id
+   * @return recipe of specified ID
+   * */
+  getRecipeByID(id: number): Recipe {
+    return this.recipes[id];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
   }
+
 }
